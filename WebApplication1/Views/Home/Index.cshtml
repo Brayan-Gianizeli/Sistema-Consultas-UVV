@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Início";
+}
+
+<div class="home-container">
+    <div class="home-card">
+
+        <h1>Sistema de Consultas UVV</h1>
+
+        <p>
+            Gerencie suas consultas médicas de forma simples e organizada.
+        </p>
+
+        <div class="home-buttons">
+            <a asp-controller="Login"
+               asp-action="Index"
+               class="home-button">
+                Entrar
+            </a>
+
+            <a asp-controller="Usuario"
+               asp-action="Cadastro"
+               class="home-button secondary">
+                Criar conta
+            </a>
+        </div>
+
+    </div>
+</div>

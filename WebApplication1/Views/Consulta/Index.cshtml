@@ -1,0 +1,50 @@
+﻿@model IEnumerable<WebApplication1.Models.Consulta>
+
+@{
+    ViewData["Title"] = "Minhas Consultas";
+}
+
+<h1>Minhas Consultas</h1>
+
+<p>
+    <a asp-action="Criar">Cadastrar nova consulta</a>
+</p>
+
+@if (!Model.Any())
+{
+    <p>Você ainda não possui consultas cadastradas.</p>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Especialidade</th>
+                <th>Data e Hora</th>
+                <th>Descrição</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var consulta in Model)
+            {
+                <tr>
+                    <td>@consulta.Especialidade</td>
+                    <td>@consulta.DataHora.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td>@consulta.Descricao</td>
+                    <td>
+                        <a asp-action="Editar" asp-route-id="@consulta.Id">Editar</a>
+                        |
+                        <a asp-action="Excluir" asp-route-id="@consulta.Id">Excluir</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+    <div class="logout-container">
+        <form asp-controller="Login" asp-action="Logout" method="post">
+            <button type="submit">Sair</button>
+        </form>
+    </div>
